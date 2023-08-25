@@ -9,4 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="gold">#CCA047</color>
     <color name="silver">#DACCCC</color>
+    <color name="green">#3A9957</color>
+    <color name="light_green">#59DD81</color>
 </resources>
