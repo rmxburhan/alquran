@@ -1,13 +1,16 @@
 package com.example.alquran
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.ListUpdateCallback
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.alquran.models.Data
+import com.example.alquran.surah.DetailSurahActivity
 
 class ListSurahAdapter(val surahFragment: SurahFragment, val data: List<Data>) :
     RecyclerView.Adapter<ListSurahAdapter.ListSurahHolder>() {
@@ -16,7 +19,7 @@ class ListSurahAdapter(val surahFragment: SurahFragment, val data: List<Data>) :
         var txtNamaSurahLatin : TextView = itemView.findViewById(R.id.txtNamaSurahLatin)
         var txtKeterangan : TextView = itemView.findViewById(R.id.txtKeteranganSurah)
         var txtNamaSurahArab : TextView = itemView.findViewById(R.id.txtNamaSurahArab)
-        var menu : TextView = itemView.findViewById(R.id.menu1)
+        var menu : LinearLayout = itemView.findViewById(R.id.menu1)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListSurahHolder {
@@ -36,7 +39,9 @@ class ListSurahAdapter(val surahFragment: SurahFragment, val data: List<Data>) :
             txtNamaSurahArab.setText(data.nama)
             txtKeterangan.setText("${data.tempatTurun} Ayat-${data.jumlahAyat.toString()}")
             menu.setOnClickListener {
-                
+                surahFragment.activity?.startActivity(Intent(surahFragment.activity, DetailSurahActivity::class.java).apply {
+                    putExtra("nomor", data.nomor.toString())
+                })
             }
         }
     }
