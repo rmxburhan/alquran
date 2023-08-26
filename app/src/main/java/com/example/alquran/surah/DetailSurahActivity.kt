@@ -18,6 +18,7 @@ class DetailSurahActivity : AppCompatActivity() {
         setContentView(R.layout.activity_detail_surah)
 
         nomor = intent.getStringExtra("nomor") ?:""
+        Log.d("nomor-surah", nomor)
 
         binding = ActivityDetailSurahBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -25,9 +26,8 @@ class DetailSurahActivity : AppCompatActivity() {
         val repository = Repository()
         val viewModelFactory = DetailSurahViewModelFactory(repository)
         viewModel = ViewModelProvider(this,viewModelFactory ).get(DetailSurahViewModel::class.java)
-        viewModel.getSurahInfo()
+        viewModel.getSurahInfo(nomor.toInt())
         viewModel.mySurah.observe(this, Observer { response ->
-
             runOnUiThread {
                 binding.txtAyat.setText("${response.data.jumlahAyat.toString()} Ayat")
                 binding.txtNamaSurah.setText(response.data.arti)

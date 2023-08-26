@@ -11,7 +11,7 @@ class Repository {
         return RetrofitInstance.api.getSurats()
     }
 
-    suspend fun getDetailSurah() : DetailSurah {
-        return RetrofitInstance.api.getDetailSurat()
+    suspend fun getDetailSurah(nomor : Int) : DetailSurah {
+        return RetrofitInstance.api.getDetailSurat(nomor)
     }
 }

@@ -9,7 +9,8 @@ data class Data(
     val nama: String,
     val namaLatin: String,
     val nomor: Int,
-    val suratSebelumnya: Boolean,
-    val suratSelanjutnya: SuratSelanjutnya,
+//    val suratSebelumnya: SurahNavigation,
+//    val suratSelanjutnya: SurahNavigation,
     val tempatTurun: String
 )
+

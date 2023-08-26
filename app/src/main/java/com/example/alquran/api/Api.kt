@@ -11,6 +11,6 @@ interface Api {
     @GET("api/v2/surat")
     suspend fun getSurats() : SurahResponse
 
-    @GET("api/v2/surat/1")
-    suspend fun getDetailSurat() : DetailSurah
+    @GET("api/v2/surat/{nomor}")
+    suspend fun getDetailSurat(@Path("nomor") nomor : Int) : DetailSurah
 }
