@@ -32,7 +32,7 @@ class SurahFragment : Fragment() {
         viewModel = ViewModelProvider(this, mainViewModelFactory).get(MainViewModel::class.java)
         viewModel.getListSurah()
         viewModel.mySurah.observe(viewLifecycleOwner, Observer { response ->
-            Log.d("oh-my-oh-my",response.toString())
+            Log.d("err-getSurah",response.toString())
                 activity?.runOnUiThread {
                     binding.listSurah.adapter = ListSurahAdapter(this@SurahFragment, response.data)
                 }
